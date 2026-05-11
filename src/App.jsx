@@ -15,23 +15,8 @@ const Notifications = lazy(() => import("./pages/Notifications"));
 const Tax = lazy(() => import("./pages/Tax"));
 
 function App() {
-  const location = useLocation();
-  const [showLoader, setShowLoader] = useState(false);
+ 
 
-  useEffect(() => {
-    // Show loader on route change
-    setShowLoader(true);
-
-    const timer = setTimeout(() => {
-      setShowLoader(false);
-    }, 5000); // ⏱ 5 seconds
-
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
-
-  if (showLoader) {
-    return <Loader />;
-  }
   return (
     <>
       <Suspense fallback={<Loader />}>

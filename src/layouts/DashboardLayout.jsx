@@ -9,7 +9,11 @@ const DashboardLayout = () => {
   return (
     <div className='w-full h-full flex flex-row '>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
-      <div className='w-full h-full flex flex-col '>
+      <div
+        className={`min-w-0 flex-1 h-full flex flex-col transition-all duration-300 ${
+          sidebarOpen ? "ml-64" : "ml-20"
+        }`}
+      >
         <Header/>
         <Outlet/>
       </div>
