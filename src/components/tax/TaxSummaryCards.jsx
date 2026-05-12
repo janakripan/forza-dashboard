@@ -10,8 +10,9 @@ function cardTone(tone) {
     return {
       border: "border-[#8BD9D1]",
       title: "text-[#475569]",
-      amount: "text-[#1E293B]",
-      iconWrap: "bg-[#F8FAFC] text-[#64748B]",
+      amount: "text-[#2B313D]",
+      iconWrap: "text-[#A12D66]",
+      tint: "bg-[#DFF7F3]",
       icon: Percent,
     };
   }
@@ -20,15 +21,17 @@ function cardTone(tone) {
       border: "border-[#CFC4F5]",
       title: "text-[#6356A7] uppercase tracking-[0.08em]",
       amount: "text-[#5C4AC4]",
-      iconWrap: "bg-[#F8FAFC] text-[#7B6AD9]",
+      iconWrap: "text-[#5C4AC4]",
+      tint: "bg-[#EEEAFE]",
       icon: Landmark,
     };
   }
   return {
     border: "border-[#E7B0BF]",
     title: "text-[#475569]",
-    amount: "text-[#1E293B]",
-    iconWrap: "bg-[#F8FAFC] text-[#64748B]",
+    amount: "text-[#2B313D]",
+    iconWrap: "text-[#6B7280]",
+    tint: "bg-[#FBE7EC]",
     icon: ReceiptText,
   };
 }
@@ -43,29 +46,30 @@ export default function TaxSummaryCards({ cards }) {
           <article
             key={card.id}
             className={[
-              "rounded-[14px] border bg-white p-4",
-              "shadow-[0_8px_24px_rgba(15,23,42,0.05)]",
+              "relative overflow-hidden rounded-[14px] border bg-white p-6",
               tone.border,
             ].join(" ")}
           >
+            <div className={`absolute -right-12 -top-14 h-[150px] w-[150px] rounded-full ${tone.tint} opacity-55`} />
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className={`text-[11px] font-semibold ${tone.title}`}>
+                <p className={`text-[13px] font-medium ${tone.title}`}>
                   {card.title}
                 </p>
-                <p className={`mt-1 text-[22px] font-extrabold leading-tight ${tone.amount}`}>
-                  <span className="mr-1 text-[22px] align-middle">{card.currency}</span>
-                  <span className="text-[22px] align-middle">{card.amount}</span>
+                <p className={`mt-2 text-[40px] font-bold leading-none tracking-[-0.02em] ${tone.amount}`}>
+                  <span className="mr-2 text-[40px] align-middle">{card.currency}</span>
+                  <span className="align-middle">{card.amount}</span>
                 </p>
               </div>
               <span
                 className={[
-                  "inline-flex h-11 w-11 items-center justify-center rounded-xl",
+                  "relative z-10 inline-flex h-8 w-8 items-center justify-center rounded-[9px]",
+                  "border border-[#D1D5DB] bg-[#F3F4F6] shadow-[0_4px_10px_rgba(15,23,42,0.08)]",
                   tone.iconWrap,
                 ].join(" ")}
                 aria-hidden
               >
-                <Icon className="h-5 w-5" strokeWidth={2.2} />
+                <Icon className="h-4 w-4" strokeWidth={2.2} />
               </span>
             </div>
           </article>

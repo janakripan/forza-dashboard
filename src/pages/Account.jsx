@@ -1,10 +1,4 @@
-/**
- * Accounts page (dashboard main page).
- *
- * UI components live in `src/components/account/*`.
- * Dummy data is isolated in `src/constants/accountPageData.js` so swapping to API
- * is a one-file change (or a simple adapter).
- */
+
 
 import KpiRow from "../components/account/KpiRow";
 import SalesSummary from "../components/account/SalesSummary";
