@@ -1,46 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @import "tailwindcss";
 
-/* ============================================================
-   LOADER — Premium Windows-style arc animation
-   ============================================================
 
-   Velocity model:
-   Angular velocity follows a sinusoidal profile:
-     ω(t) ∝ 1 − cos(2πt)
-   This gives:
-     • SLOW at t=0 and t=1 → 12 o'clock (top)
-     • FAST at t=0.5      → 6 o'clock (bottom)
+/* custom fonts  */
 
-   The integrated angle positions are:
-     angle(t) = 360° × [ t − sin(2πt) / (2π) ] − 90°
-   yielding these keyframe angles (starting at −90° = 12 o'clock):
-
-     t       angle
-     0.000   −90.0°
-     0.125   −85.5°
-     0.250   −57.3°
-     0.375     4.5°
-     0.500    90.0°
-     0.625   175.5°
-     0.750   237.3°
-     0.875   265.5°
-     1.000   270.0°
-
-   This makes the arc crawl through the top quadrant and
-   whip through the bottom — exactly the Windows-style feel.
-
-   Arc length:
-     Circumference = 2π × 94 ≈ 591px
-     Min arc (at top)    ≈ 18px   — small dot
-     Max arc (at bottom) ≈ 120px  — roughly 1/5 of circle
-     Gap always = 591 so no second arc appears.
-
-   Duration: 2.4s for a calm, premium pace.
-   Timing: linear — the speed variation is baked into the keyframes.
-============================================================ */
 
 /* ── Tailwind v4 custom utilities ── */
 @theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
   --animate-arc-spin: arcSpin 2.4s infinite;
   --animate-arc-tip: arcTip 2.4s infinite;
 }

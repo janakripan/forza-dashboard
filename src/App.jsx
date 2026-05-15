@@ -13,6 +13,12 @@ const Settings = lazy(() => import("./pages/Settings"));
 const Help = lazy(() => import("./pages/Help"));
 const Notifications = lazy(() => import("./pages/Notifications"));
 const Tax = lazy(() => import("./pages/Tax"));
+const RevenueDetails = lazy(() => import("./pages/RevenueDetails"));
+const TotalProducts = lazy(() => import("./pages/TotalProducts"));
+const CustomerOutstanding = lazy(() => import("./pages/CustomerOutstanding"));
+
+
+
 
 function App() {
  
@@ -33,7 +39,13 @@ function App() {
             <Route path="help" element={<Help />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="tax" element={<Tax />} />
+            <Route path="revenue-details" element={<RevenueDetails />} />
+            <Route path="total-products" element={<TotalProducts />} />
+            <Route path="customer-outstanding" element={<CustomerOutstanding />} />
           </Route>
+
+
+
         </Routes>
       </Suspense>
     </>

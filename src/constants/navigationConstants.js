@@ -8,6 +8,7 @@ import {
   Settings,
   ShoppingBasket,
   SquarePercent,
+  WalletCards
 } from "lucide-react";
 
 /** Primary nav — matches `App.jsx` dashboard child routes */
@@ -17,8 +18,8 @@ export const sidebarPrimaryNav = [
     title: "Dashboard",
     to: "/dashboard",
     icon: House,
-    end: true,
   },
+
   {
     id: "sale",
     title: "Sales Analysis",
@@ -35,7 +36,7 @@ export const sidebarPrimaryNav = [
     id: "inventory",
     title: "Inventory",
     to: "/dashboard/inventory",
-    icon: Package,
+    icon: WalletCards,
   },
   {
     id: "tax",

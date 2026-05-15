@@ -1,5 +1,6 @@
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { ChevronRight } from "lucide-react";
+
 import sidebarLogo from "../../assets/sidebarLogo.svg";
 import logotext from "../../assets/logoText.svg";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
@@ -9,63 +10,74 @@ import {
 } from "../../constants/navigationConstants";
 
 const iconStroke = 1.5;
-const iconSize = 20;
+const iconSize = 24;
 
 const navItemBase =
   "group flex w-full items-center rounded-xl font-medium text-[15px] leading-tight tracking-[-0.01em] transition-[color,background-color,box-shadow] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#8B5CF6]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white";
 
 const navInactive =
-  "text-[#8E8E8E] hover:bg-slate-50/90 hover:text-[#64748B] active:bg-slate-100/80";
+  "text-[#8E8E93] hover:bg-slate-50/90 hover:text-[#64748B] active:bg-slate-100/80";
 
 const navActive =
-  "bg-gradient-to-tr from-[#DCE4FF] via-[#6F57DE]/80 to-[#DCE4FF]  text-white shadow-[0_8px_30px_rgba(111,87,222,0.18)] backdrop-blur-[9px]";
+  "bg-gradient-to-tr from-[#DCE4FF] via-[#6F57DE]/80 to-[#DCE4FF]  text-white  shadow-[0_8px_30px_rgba(111,87,222,0.18)] backdrop-blur-[9px]";
 
   function NavItem({ item, sidebarOpen }) {
     const Icon = item.icon;
   
     return (
       <NavLink to={item.to} end={item.end}>
-        {({ isActive }) => (
+        {() => {
+          const { pathname } = useLocation();
+          const allNavItems = [...sidebarPrimaryNav, ...sidebarSecondaryNav];
+          const isDashboard = item.to === "/dashboard";
+          
+          const isOtherItemMatched = allNavItems
+            .filter(i => i.to !== "/dashboard")
+            .some(i => pathname.startsWith(i.to));
 
-          // border div 
-          <div
-            className={
-              isActive
-                ? "bg-linear-to-b from-[#DCE4FF]/50 via-[#5949BE] to-[#DCE4FF]/50 p-[2px]  border border-[#DCE4FF] rounded-2xl"
-                : ""
-            }
-          >
+          const isActive = isDashboard 
+            ? (pathname.startsWith("/dashboard") && !isOtherItemMatched)
+            : (pathname.startsWith(item.to));
 
-            {/* inner div  */}
+          return (
             <div
-              title={!sidebarOpen ? item.title : undefined}
-              className={[
-                navItemBase,
-                sidebarOpen
-                  ? "min-h-[44px] gap-3 px-3 py-2.5"
-                  : "mx-auto min-h-[44px] w-11 max-w-full justify-center px-0 py-2.5",
-                isActive ? navActive : navInactive,
-                "rounded-2xl",
-              ].join(" ")}
+              className={
+                isActive
+                  ? "bg-linear-to-b from-[#DCE4FF]/50 via-[#5949BE] to-[#DCE4FF]/50 p-[2px] border border-[#DCE4FF] rounded-2xl"
+                  : ""
+              }
             >
-              <Icon
-                size={iconSize}
-                strokeWidth={iconStroke}
-                className={`shrink-0 ${
-                  isActive ? "text-white" : "text-current"
-                }`}
-                aria-hidden
-              />
-  
-              {sidebarOpen ? (
-                <span className="min-w-0 flex-1 truncate text-left">
-                  {item.title}
-                </span>
-              ) : null}
+              <div
+                title={!sidebarOpen ? item.title : undefined}
+                className={[
+                  navItemBase,
+                  sidebarOpen
+                    ? "min-h-[44px] gap-3 px-3 py-2.5"
+                    : "mx-auto min-h-[44px] w-11 max-w-full justify-center px-0 py-2.5",
+                  isActive ? navActive : navInactive,
+                  "rounded-2xl",
+                ].join(" ")}
+              >
+                <Icon
+                  size={iconSize}
+                  strokeWidth={iconStroke}
+                  className={`shrink-0 ${
+                    isActive ? "text-white" : "text-current"
+                  }`}
+                  aria-hidden
+                />
+
+                {sidebarOpen ? (
+                  <span className="min-w-0 flex-1 truncate font-poppins text-[14px] font-medium text-left">
+                    {item.title}
+                  </span>
+                ) : null}
+              </div>
             </div>
-          </div>
-        )}
+          );
+        }}
       </NavLink>
+
     );
   }
 
