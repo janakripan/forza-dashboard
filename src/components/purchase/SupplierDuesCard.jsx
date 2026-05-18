@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router";
+
 function gradientFromSegments(segments) {
+
   const total = segments.reduce((sum, s) => sum + s.value, 0);
   let start = 0;
   const parts = segments.map((s) => {
@@ -14,11 +17,25 @@ function gradientFromSegments(segments) {
  * Supplier dues snapshot with conic donut and legend.
  */
 export default function SupplierDuesCard({ rows, totalLabel }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/dashboard/purchase/supplier-performance');
+  };
+
+
   return (
-    <section className="rounded-[14px] border border-[#E3E7EF] bg-white p-4">
+    <section 
+      onClick={handleClick}
+      className="rounded-[14px] border border-[#E3E7EF] bg-white p-4 cursor-pointer hover:shadow-lg transition-all duration-300"
+    >
       <div className="flex items-center justify-between">
         <h3 className="text-[14px] font-semibold text-[#1E293B]">Supplier Dues</h3>
-        <button className="text-[11px] font-semibold text-[#5A52CD] hover:underline" type="button">
+        <button 
+          className="text-[11px] font-semibold text-[#5A52CD] hover:underline" 
+          type="button"
+          onClick={(e) => { e.stopPropagation(); handleClick(); }}
+        >
           View Full
         </button>
       </div>

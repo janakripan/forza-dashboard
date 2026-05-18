@@ -29,9 +29,10 @@ const SalesStatCard = ({ title, amount, subtitle, icon, color }) => {
   const isClickable = isRevenue || isOutstanding;
 
   const handleClick = () => {
-    if (isRevenue) navigate('/dashboard/revenue-details');
-    if (isOutstanding) navigate('/dashboard/customer-outstanding');
+    if (isRevenue) navigate('/dashboard/sale/revenue-details');
+    if (isOutstanding) navigate('/dashboard/sale/customer-outstanding');
   };
+
 
   const IconComponent = {
     'total-sales': CircleDollarSign,

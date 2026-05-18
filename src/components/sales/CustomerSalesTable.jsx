@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState } from "react";
 
 const PAGE_SIZE = 6;
 const tabs = ["recent", "amount", "incentive"];
@@ -10,7 +10,7 @@ const tabs = ["recent", "amount", "incentive"];
 export default function CustomerSalesTable({ rowsByTab }) {
   const [activeTab, setActiveTab] = useState("recent");
   const [page, setPage] = useState(1);
-  
+
   const rows = rowsByTab[activeTab] ?? [];
   const totalPages = Math.max(Math.ceil(rows.length / PAGE_SIZE), 1);
 
@@ -24,14 +24,18 @@ export default function CustomerSalesTable({ rowsByTab }) {
     setPage(1);
   };
 
-  const formatMoney = (value) => `Ð ${Number(value).toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
-  const formatPlain = (value) => Number(value).toLocaleString(undefined, { minimumFractionDigits: 2 });
+  const formatMoney = (value) =>
+    `Ð ${Number(value).toLocaleString(undefined, { minimumFractionDigits: 2 })}`;
+  const formatPlain = (value) =>
+    Number(value).toLocaleString(undefined, { minimumFractionDigits: 2 });
 
   return (
     <section className="rounded-[14px] border border-[#E3E7EF] bg-white p-6 shadow-[0px_4px_20px_rgba(0,0,0,0.02)]">
       <header className="flex flex-wrap items-start justify-between gap-4 mb-6">
         <div>
-          <h3 className="text-[14px] font-extrabold text-[#1E293B]">Customer Sales Performance</h3>
+          <h3 className="text-[14px] font-extrabold text-[#1E293B]">
+            Customer Sales Performance
+          </h3>
           <p className="mt-1 text-[11px] font-bold text-[#94A3B8] uppercase tracking-wider">
             Top 5 accounts by transaction volume
           </p>
@@ -59,18 +63,33 @@ export default function CustomerSalesTable({ rowsByTab }) {
               <th className="px-6 py-4">Amount</th>
               <th className="px-6 py-4">Paid</th>
               <th className="px-6 py-4">Balance</th>
-              <th className="px-6 py-4 rounded-r-lg text-center">Pending Invoice</th>
+              <th className="px-6 py-4 rounded-r-lg text-center">
+                Pending Invoice
+              </th>
             </tr>
           </thead>
           <tbody className="text-[13px] font-bold text-[#1E293B] divide-y divide-[#F1F5F9]">
             {paginatedRows.map((row) => (
-              <tr key={row.id} className="hover:bg-gray-50/50 transition-colors">
+              <tr
+                key={row.id}
+                className="hover:bg-gray-50/50 transition-colors"
+              >
                 <td className="px-6 py-[18px]">{row.customer}</td>
-                <td className="px-6 py-[18px] text-[#64748B] font-semibold">{row.invCount}</td>
-                <td className="px-6 py-[18px] font-black text-[#0F172A]">{formatMoney(row.amount)}</td>
-                <td className="px-6 py-[18px] text-[#10B981]">{formatPlain(row.paid)}</td>
-                <td className="px-6 py-[18px] text-[#64748B]">{formatPlain(row.balance)}</td>
-                <td className="px-6 py-[18px] text-center text-[#0F172A]">{row.pendingInvoice}</td>
+                <td className="px-6 py-[18px] text-[#64748B] font-semibold">
+                  {row.invCount}
+                </td>
+                <td className="px-6 py-[18px] font-black text-[#0F172A]">
+                  {formatMoney(row.amount)}
+                </td>
+                <td className="px-6 py-[18px] text-[#10B981]">
+                  {formatPlain(row.paid)}
+                </td>
+                <td className="px-6 py-[18px] text-[#64748B]">
+                  {formatPlain(row.balance)}
+                </td>
+                <td className="px-6 py-[18px] text-center text-[#0F172A]">
+                  {row.pendingInvoice}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -79,13 +98,18 @@ export default function CustomerSalesTable({ rowsByTab }) {
 
       <footer className="mt-8 flex items-center justify-between text-[13px] font-bold text-[#94A3B8]">
         <p>
-          Showing <span className="text-[#0F172A]">{(page - 1) * PAGE_SIZE + 1}-{Math.min(page * PAGE_SIZE, rows.length)}</span> of <span className="text-[#0F172A]">{rows.length}</span>
+          Showing{" "}
+          <span className="text-[#0F172A]">
+            {(page - 1) * PAGE_SIZE + 1}-
+            {Math.min(page * PAGE_SIZE, rows.length)}
+          </span>{" "}
+          of <span className="text-[#0F172A]">{rows.length}</span>
         </p>
         <div className="inline-flex items-center gap-3">
-          <button 
-            type="button" 
-            onClick={() => setPage((p) => Math.max(1, p - 1))} 
-            className="rounded-xl border border-[#E2E8F0] px-4 py-2 hover:bg-gray-50 transition-all disabled:opacity-40" 
+          <button
+            type="button"
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            className="rounded-xl border border-[#E2E8F0] px-4 py-2 hover:bg-gray-50 transition-all disabled:opacity-40"
             disabled={page === 1}
           >
             Prev
@@ -95,10 +119,10 @@ export default function CustomerSalesTable({ rowsByTab }) {
             <span className="text-[#E2E8F0]">/</span>
             <span>{totalPages}</span>
           </div>
-          <button 
-            type="button" 
-            onClick={() => setPage((p) => Math.min(totalPages, p + 1))} 
-            className="rounded-xl border border-[#E2E8F0] px-4 py-2 hover:bg-gray-50 transition-all disabled:opacity-40" 
+          <button
+            type="button"
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            className="rounded-xl border border-[#E2E8F0] px-4 py-2 hover:bg-gray-50 transition-all disabled:opacity-40"
             disabled={page === totalPages}
           >
             Next

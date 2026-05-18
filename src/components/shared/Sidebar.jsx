@@ -87,6 +87,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       className={`fixed z-50 left-0 top-0  flex h-screen flex-col gap-1.75 gap-y-5.5 rounded-r-[16px] bg-white py-4 shadow-[20px_-2px_44px_0px_rgba(0,52,173,0.10),178px_-18px_107px_0px_rgba(0,52,173,0.05)] transition-all duration-300 ${sidebarOpen ? "w-64 px-4" : "w-20 px-2"
         }`}
     >
+
       {/* logo section  */}
       <div className="relative flex h-fit w-full shrink-0 flex-row items-center justify-between p-0 transition-all duration-500">
         <div className="flex h-[66px] w-[66px] shrink-0 items-center justify-center">
@@ -105,7 +106,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           type="button"
           aria-expanded={sidebarOpen}
           aria-label={sidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
-          className={`absolute top-1/2 z-20 flex h-5.5 w-5.5 -translate-y-1/2 items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#081021] transition-all duration-300 hover:border-slate-300 hover:bg-slate-50 ${sidebarOpen ? "-right-7" : "-right-5.5 rotate-180"
+          className={`absolute z-[999] top-1/2  flex h-5.5 w-5.5 -translate-y-1/2 items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#081021] transition-all duration-300 hover:border-slate-300 hover:bg-slate-50 ${sidebarOpen ? "-right-7" : "-right-5.5 rotate-180"
             }`}
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >

@@ -1,0 +1,110 @@
+export const stockCardData = [
+  {
+    id: 1,
+    date: "Oct 24, 2023",
+    itemName: "Ergonomic Office Chair (Blue)",
+    sku: "SKU-892",
+    type: "Purchase",
+    typeColor: "bg-[#F3E8FF] text-[#9333EA]",
+    qtyIn: "50",
+    qtyOut: "-",
+    balance: "150",
+    cost: "125.00"
+  },
+  {
+    id: 2,
+    date: "Oct 24, 2023",
+    itemName: "Mechanical Keyboard (RGB)",
+    sku: "SKU-104",
+    type: "Sale",
+    typeColor: "bg-[#EFF6FF] text-[#2563EB]",
+    qtyIn: "-",
+    qtyOut: "12",
+    balance: "88",
+    cost: "45.50"
+  },
+  {
+    id: 3,
+    date: "Oct 23, 2023",
+    itemName: "27\" 4K Monitor (Ultra)",
+    sku: "SKU-4K27",
+    type: "Return",
+    typeColor: "bg-[#F1F5F9] text-[#475569]",
+    qtyIn: "2",
+    qtyOut: "-",
+    balance: "42",
+    cost: "280.00"
+  },
+  {
+    id: 4,
+    date: "Oct 22, 2023",
+    itemName: "Mechanical Keyboard (RGB)",
+    sku: "SKU-104",
+    type: "Purchase",
+    typeColor: "bg-[#F3E8FF] text-[#9333EA]",
+    qtyIn: "100",
+    qtyOut: "-",
+    balance: "100",
+    cost: "45.50"
+  },
+  {
+    id: 5,
+    date: "Oct 21, 2023",
+    itemName: "Ergonomic Office Chair (Blue)",
+    sku: "SKU-892",
+    type: "Sale",
+    typeColor: "bg-[#EFF6FF] text-[#2563EB]",
+    qtyIn: "-",
+    qtyOut: "5",
+    balance: "100",
+    cost: "125.00"
+  },
+  {
+    id: 6,
+    date: "Oct 20, 2023",
+    itemName: "Wireless Mouse (Grey)",
+    sku: "SKU-WM22",
+    type: "Sale",
+    typeColor: "bg-[#EFF6FF] text-[#2563EB]",
+    qtyIn: "-",
+    qtyOut: "25",
+    balance: "340",
+    cost: "18.20"
+  },
+  {
+    id: 7,
+    date: "Oct 18, 2023",
+    itemName: "27\" 4K Monitor (Ultra)",
+    sku: "SKU-4K27",
+    type: "Purchase",
+    typeColor: "bg-[#F3E8FF] text-[#9333EA]",
+    qtyIn: "20",
+    qtyOut: "-",
+    balance: "40",
+    cost: "280.00"
+  },
+  {
+    id: 8,
+    date: "Oct 15, 2023",
+    itemName: "Ergonomic Office Chair (Blue)",
+    sku: "SKU-892",
+    type: "Return",
+    typeColor: "bg-[#F1F5F9] text-[#475569]",
+    qtyIn: "1",
+    qtyOut: "-",
+    balance: "105",
+    cost: "125.00"
+  },
+  {
+    id: 9,
+    date: "Oct 12, 2023",
+    itemName: "Laptop Stand (Aluminum)",
+    sku: "SKU-LS01",
+    type: "Sale",
+    typeColor: "bg-[#EFF6FF] text-[#2563EB]",
+    qtyIn: "-",
+    qtyOut: "10",
+    balance: "45",
+    cost: "35.00"
+  }
+];

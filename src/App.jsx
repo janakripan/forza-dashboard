@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router";
 import Loader from "./utils/Loader";
 // Lazy load pages
 const Login = lazy(() => import("./pages/Login"));
+const SelectBranch = lazy(() => import("./pages/SelectBranch"));
 const DashboardLayout = lazy(() => import("./layouts/DashboardLayout"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Sale = lazy(() => import("./pages/Sale"));
@@ -16,6 +17,10 @@ const Tax = lazy(() => import("./pages/Tax"));
 const RevenueDetails = lazy(() => import("./pages/RevenueDetails"));
 const TotalProducts = lazy(() => import("./pages/TotalProducts"));
 const CustomerOutstanding = lazy(() => import("./pages/CustomerOutstanding"));
+const SupplierPerformance = lazy(() => import("./pages/SupplierPerformance"));
+const StockCard = lazy(() => import("./pages/StockCard"));
+
+
 
 
 
@@ -28,21 +33,33 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Login />} />
+          <Route path="/select-branch" element={<SelectBranch />} />
 
           <Route path="dashboard" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
-            <Route path="sale" element={<Sale />} />
-            <Route path="purchase" element={<Purchase />} />
-            <Route path="inventory" element={<Inventory />} />
+            <Route path="sale">
+              <Route index element={<Sale />} />
+              <Route path="revenue-details" element={<RevenueDetails />} />
+              <Route path="customer-outstanding" element={<CustomerOutstanding />} />
+            </Route>
+            <Route path="purchase">
+              <Route index element={<Purchase />} />
+              <Route path="supplier-performance" element={<SupplierPerformance />} />
+            </Route>
+            <Route path="inventory">
+              <Route index element={<Inventory />} />
+              <Route path="total-products" element={<TotalProducts />} />
+              <Route path="stock-card" element={<StockCard />} />
+            </Route>
             <Route path="account" element={<Account />} />
             <Route path="settings" element={<Settings />} />
             <Route path="help" element={<Help />} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="tax" element={<Tax />} />
-            <Route path="revenue-details" element={<RevenueDetails />} />
-            <Route path="total-products" element={<TotalProducts />} />
-            <Route path="customer-outstanding" element={<CustomerOutstanding />} />
+
           </Route>
+
+
 
 
 

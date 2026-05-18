@@ -4,7 +4,7 @@ export const inventorySummaryCards = [
     title: "Total Products",
     value: "12,450",
     meta: "+2.4% from last month",
-    tone: "neutral",
+    tone: "primary",
   },
   {
     id: "low-stock",
@@ -31,28 +31,30 @@ export const inventorySummaryCards = [
 
 export const manufacturedProducts = [
   {
-    id: "marte-black",
+    id: 1,
     name: "Matte Black A4 Binders",
-    detail: "1,000 units freshly produced",
+    meta: "1,000 units freshly produced",
+    icon: "cart",
   },
   {
-    id: "stylish-chair",
+    id: 2,
     name: "Stylish Desk Organizer",
-    detail: "100 Unit Transferred",
+    meta: "100 Unit Transferred",
+    icon: "cart",
   },
 ];
 
 export const negativeStocks = [
   {
-    id: "neon-yellow",
+    id: 1,
     name: "Neon Yellow Cardstock",
-    units: -50,
-    detail: "3DAYS",
+    meta: "3DAYS",
+    value: "-50",
   },
   {
-    id: "obsidian-binding",
+    id: 2,
     name: "Obsolete Binding Coils",
-    units: -20,
-    detail: "2DAYS",
+    meta: "2DAYS",
+    value: "-20",
   },
 ];

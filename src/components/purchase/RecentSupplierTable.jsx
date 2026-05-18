@@ -31,7 +31,9 @@ export default function RecentSupplierTable({ rowsByTab }) {
     <section className="rounded-[14px] border border-[#E3E7EF] bg-white p-4">
       <header className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 className="text-[14px] font-semibold text-[#1E293B]">Recent Supplier Transactions</h3>
+          <h3 className="text-[14px] font-semibold text-[#1E293B]">
+            Recent Supplier Transactions
+          </h3>
           <p className="mt-0.5 text-[11px] font-medium text-[#6B7280]">
             Detailed breakdown of payments and outstanding balances.
           </p>
@@ -68,7 +70,9 @@ export default function RecentSupplierTable({ rowsByTab }) {
                 <td className="px-4 py-[13px]">{row.supplier}</td>
                 <td className="px-4 py-[13px]">{row.poOrder}</td>
                 <td className="px-4 py-[13px]">{formatMoney(row.amount)}</td>
-                <td className="px-4 py-[13px] text-[#0EA5A4]">{formatPlain(row.paid)}</td>
+                <td className="px-4 py-[13px] text-[#0EA5A4]">
+                  {formatPlain(row.paid)}
+                </td>
                 <td className="px-4 py-[13px]">{formatPlain(row.balance)}</td>
                 <td className="px-4 py-[13px]">{row.pendingInvoice}</td>
               </tr>
@@ -79,14 +83,27 @@ export default function RecentSupplierTable({ rowsByTab }) {
 
       <footer className="mt-4 flex items-center justify-between text-[12px] font-medium text-[#64748B]">
         <p>
-          Showing {(page - 1) * PAGE_SIZE + 1}-{Math.min(page * PAGE_SIZE, rows.length)} of {rows.length}
+          Showing {(page - 1) * PAGE_SIZE + 1}-
+          {Math.min(page * PAGE_SIZE, rows.length)} of {rows.length}
         </p>
         <div className="inline-flex items-center gap-2">
-          <button type="button" onClick={() => setPage((p) => Math.max(1, p - 1))} className="rounded-md border border-[#D1D5DB] px-2 py-1 disabled:opacity-50" disabled={page === 1}>
+          <button
+            type="button"
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            className="rounded-md border border-[#D1D5DB] px-2 py-1 disabled:opacity-50"
+            disabled={page === 1}
+          >
             Prev
           </button>
-          <span className="px-2">{page} / {totalPages}</span>
-          <button type="button" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} className="rounded-md border border-[#D1D5DB] px-2 py-1 disabled:opacity-50" disabled={page === totalPages}>
+          <span className="px-2">
+            {page} / {totalPages}
+          </span>
+          <button
+            type="button"
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            className="rounded-md border border-[#D1D5DB] px-2 py-1 disabled:opacity-50"
+            disabled={page === totalPages}
+          >
             Next
           </button>
         </div>
